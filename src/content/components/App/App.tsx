@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import Inner from '../Inner';
+import Container from '../Container';
 
 const queryClient = new QueryClient();
 
-const App = () => {
+const App: React.FC = () => {
   const [search, setSearch] = useState<string | null>(null);
 
   useEffect(() => {
@@ -22,9 +22,8 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="w-full h-20 mb-4 bg-blue-200">
-        {search}
-        <Inner search={search} />
+      <div className="w-full mb-4">
+        <Container search={search} />
       </div>
     </QueryClientProvider>
   );
