@@ -16,9 +16,15 @@
     "@types/firefox-webext-browser": "^82.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "autoprefixer": "^10.3.4",
+    "axios": "^0.21.4",
+    "postcss": "^8.3.6",
     "prettier": "^2.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-query": "^3.23.2",
+    "rollup-plugin-json": "^4.0.0",
+    "tailwindcss": "^2.2.15",
     "webextension-polyfill": "^0.7.0"
   },
   "devDependencies": {
@@ -37,6 +43,7 @@
     "rollup": "^2.56.3",
     "rollup-plugin-chrome-extension": "^3.6.1",
     "rollup-plugin-empty-dir": "^1.0.5",
+    "rollup-plugin-postcss": "^4.0.1",
     "rollup-plugin-zip": "^1.0.1",
     "ts-jest": "^26.4.4",
     "tslib": "^2.0.3",

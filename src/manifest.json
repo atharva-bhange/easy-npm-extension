@@ -1,17 +1,13 @@
 {
   "background": {
-    "scripts": [
-      "background/index.ts"
-    ]
+    "scripts": ["background/index.ts"]
   },
   "content_scripts": [
     {
-      "js": [
-        "content/index.ts"
-      ],
+      "js": ["content/index.tsx"],
       "matches": [
-        "https://*/*",
-        "http://*/*"
+        "https://www.google.com/search*",
+        "http://www.google.com/search*"
       ]
     }
   ],
