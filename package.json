@@ -22,6 +22,7 @@
     "prettier": "^2.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-popper-tooltip": "^4.3.0",
     "react-query": "^3.23.2",
     "rollup-plugin-json": "^4.0.0",
     "tailwindcss": "^2.2.15",

@@ -7,8 +7,8 @@ interface Props {
 
 const Header: React.FC<Props> = ({ search }) => {
   return (
-    <div className="flex items-center justify-between flex-grow p-2">
-      <div className="text-xs">Top 3 Results for ‘{search}’</div>
+    <div className="flex items-center justify-between flex-grow ">
+      <div className="text-xs">Top Results for ‘{search}’</div>
       <PackageManagerToggle />
     </div>
   );

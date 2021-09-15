@@ -37,7 +37,7 @@ export default {
     resolve({ browser: true }),
     commonjs({ include: 'node_modules/**' }),
     json(),
-    typescript(),
+    typescript({ tsconfig: './tsconfig.json' }),
     // Empties the output dir before a new build
     emptyDir(),
     // Outputs a zip file in ./releases
