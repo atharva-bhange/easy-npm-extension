@@ -34,7 +34,7 @@ export default {
     // Adds a Chrome extension reloader during watch mode
     simpleReloader(),
     postcss({ minimize: isProduction }),
-    resolve({ browser: true }),
+    resolve({ browser: true, preferBuiltins: false }),
     commonjs({ include: 'node_modules/**' }),
     json(),
     typescript({ tsconfig: './tsconfig.json' }),

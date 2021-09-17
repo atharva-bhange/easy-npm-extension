@@ -1,14 +1,16 @@
 import axios from 'axios';
+import gh from 'parse-github-url';
 
 export const baseRepo = axios.create({
   baseURL: 'https://api.github.com/repos',
 });
 
-export const contentRepo = (
-  ownerName: string,
-  repoName: string,
-  file: string = 'package.json'
-) =>
-  axios.create({
-    baseURL: `https://api.github.com/repos/${ownerName}/${repoName}/contents/${file}`,
+export const contentRepo = (url: string, file: string = 'package.json') => {
+  const { owner, name } = gh(url);
+
+  return axios.create({
+    baseURL: `https://api.github.com/repos/${encodeURIComponent(
+      owner
+    )}/${encodeURIComponent(name)}/contents/${encodeURIComponent(file)}`,
   });
+};

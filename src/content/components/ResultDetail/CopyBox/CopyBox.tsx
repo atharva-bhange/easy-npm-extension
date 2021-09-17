@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { clipboard } from '@extend-chrome/clipboard';
 import { usePopperTooltip } from 'react-popper-tooltip';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 interface Props {
   copyText: string;
@@ -50,7 +51,12 @@ const CopyBox: React.FC<Props> = ({ copyText }) => {
           d="M9 5l7 7-7 7"
         />
       </svg>
-      <div className="flex-grow">{copyText}</div>
+      <Scrollbars
+        autoHide
+        className="flex-grow mt-1 overflow-auto whitespace-nowrap"
+      >
+        {copyText}
+      </Scrollbars>
       <svg
         className="w-6 h-6 text-blue-400 transition transform hover:scale-110"
         viewBox="0 0 20 20"
