@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import ResultDetail from '../ResultDetail';
 import Cursor from './Cursor';
 import Tab from './Tab';
 import { SearchDataType } from './types';
@@ -49,12 +50,7 @@ const Results: React.FC<Props> = ({ packages }) => {
         {renderTabs()}
         <Cursor ref={cursorRef} />
       </div>
-      <div
-        style={{ flex: 3, minHeight: '151.2px' }}
-        className="bg-gray-300 rounded-r-lg"
-      >
-        b
-      </div>
+      <ResultDetail packageName={selectedPackage} />
       <div></div>
     </div>
   );

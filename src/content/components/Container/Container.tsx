@@ -22,6 +22,8 @@ const Container: React.FC<Props> = ({ search }) => {
 
   if (isLoading || isError) return <></>;
 
+  if (!data || data.length === 0) return <></>;
+
   return (
     <PackageManagerContext.Provider
       value={{ packageManager, setPackageManager }}

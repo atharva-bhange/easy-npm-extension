@@ -27,7 +27,7 @@ const Tab = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
         }
       }}
       style={{ maxWidth: '163px' }}
-      className="z-10 p-4 overflow-hidden rounded-l-lg cursor-pointer whitespace-nowrap overflow-ellipsis hover:bg-blue-200"
+      className="z-10 p-4 overflow-hidden rounded-l-lg cursor-pointer whitespace-nowrap overflow-ellipsis "
       {...rest}
     >
       {value}
