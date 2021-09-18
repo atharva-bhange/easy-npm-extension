@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 
 import Header from '../Header';
 import Results from '../Results';
-import { PackageManagerContext } from './context';
+import { PackageManagerContext, ShowTypesContext } from './context';
 import { PackageManagerType } from './types';
 import npmApi from 'content/api/npmApi';
 interface Props {
@@ -13,6 +13,8 @@ interface Props {
 const Container: React.FC<Props> = ({ search }) => {
   const [packageManager, setPackageManager] =
     useState<PackageManagerType>('npm');
+
+  const [showTypes, setShowTypes] = useState(false);
 
   const { data, isError, isLoading } = useQuery(
     'packages',
@@ -28,10 +30,12 @@ const Container: React.FC<Props> = ({ search }) => {
     <PackageManagerContext.Provider
       value={{ packageManager, setPackageManager }}
     >
-      <div className="flex flex-col w-full p-2 bg-blue-100 rounded-lg">
-        <Header search={search} />
-        <Results packages={data} />
-      </div>
+      <ShowTypesContext.Provider value={{ showTypes, setShowTypes }}>
+        <div className="flex flex-col w-full p-2 bg-blue-100 rounded-lg">
+          <Header search={search} />
+          <Results packages={data} />
+        </div>
+      </ShowTypesContext.Provider>
     </PackageManagerContext.Provider>
   );
 };

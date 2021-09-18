@@ -1,5 +1,6 @@
 import React from 'react';
 import PackageManagerToggle from './PackageManagerToggle';
+import TypeToggle from './TypeToggle';
 
 interface Props {
   search: string;
@@ -7,8 +8,9 @@ interface Props {
 
 const Header: React.FC<Props> = ({ search }) => {
   return (
-    <div className="flex items-center justify-between flex-grow ">
-      <div className="text-xs">Top Results for ‘{search}’</div>
+    <div className="flex items-center flex-grow ">
+      <div className="flex-grow text-xs">Top Results for ‘{search}’</div>
+      <TypeToggle />
       <PackageManagerToggle />
     </div>
   );

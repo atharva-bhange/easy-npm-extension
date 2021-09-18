@@ -7,7 +7,10 @@ import { contentRepo } from 'content/api/githubApi';
 import Loader from '../Loader';
 import CopyBox from './CopyBox';
 import SideBar from './SideBar';
-import { PackageManagerContext } from 'content/components/Container/context';
+import {
+  PackageManagerContext,
+  ShowTypesContext,
+} from 'content/components/Container/context';
 import { getCopyString, getTypesName } from './util';
 import NotTyped from './NotTyped';
 import InBuiltTyped from './InBuiltTyped';
@@ -18,6 +21,7 @@ interface Props {
 
 const ResultDetail: React.FC<Props> = ({ packageName }) => {
   const { packageManager } = useContext(PackageManagerContext);
+  const { showTypes } = useContext(ShowTypesContext);
 
   const packageData = useQuery(
     ['package', packageName],
@@ -38,7 +42,7 @@ const ResultDetail: React.FC<Props> = ({ packageName }) => {
       staleTime: Infinity,
       select: (data) => data.data.results,
       retry: false,
-      enabled: packageData.isSuccess,
+      enabled: packageData.isSuccess && showTypes,
     }
   );
 
@@ -49,7 +53,7 @@ const ResultDetail: React.FC<Props> = ({ packageName }) => {
       refetchOnWindowFocus: false,
       retry: false,
       staleTime: Infinity,
-      enabled: packageData.isSuccess,
+      enabled: packageData.isSuccess && showTypes,
       onSuccess: (data) => {
         console.log('GITHUB DATA');
         console.log(data);
@@ -65,6 +69,7 @@ const ResultDetail: React.FC<Props> = ({ packageName }) => {
   );
 
   const renderTypesCopyBox = () => {
+    if (!showTypes) return <></>;
     if (packageTypes.isFetching && packageGithub.isLoading)
       return (
         <div className="flex items-center justify-center h-7">
