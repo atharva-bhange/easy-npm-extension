@@ -54,10 +54,6 @@ const ResultDetail: React.FC<Props> = ({ packageName }) => {
       retry: false,
       staleTime: Infinity,
       enabled: packageData.isSuccess && showTypes,
-      onSuccess: (data) => {
-        console.log('GITHUB DATA');
-        console.log(data);
-      },
       select: (data) => {
         try {
           return JSON.parse(decode(data.data.content));
@@ -106,7 +102,7 @@ const ResultDetail: React.FC<Props> = ({ packageName }) => {
       ) : (
         <>
           <div className="flex flex-col justify-around flex-auto">
-            <div className="mx-6 text-sm">
+            <div className="mx-6 text-sm line-clamp-3">
               {packageData.data.metadata.description}
             </div>
             <CopyBox copyText={getCopyString(packageManager, packageName)} />

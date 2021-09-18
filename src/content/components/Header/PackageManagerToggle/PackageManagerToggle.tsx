@@ -1,5 +1,6 @@
 import { PackageManagerContext } from 'content/components/Container/context';
 import React, { useContext, useEffect, useRef } from 'react';
+import { usePopperTooltip } from 'react-popper-tooltip';
 
 const PackageManagerToggle = () => {
   const parentRef = useRef<HTMLDivElement | null>(null);
@@ -24,36 +25,60 @@ const PackageManagerToggle = () => {
     cursorRef.current!.style.left = `${cursorLeft - 11}px`;
   }, [packageManager]);
 
+  const {
+    getArrowProps,
+    getTooltipProps,
+    setTooltipRef,
+    setTriggerRef,
+    visible,
+  } = usePopperTooltip({ placement: 'top' });
+
   return (
-    <div
-      ref={parentRef}
-      style={{ borderWidth: '3px', boxSizing: 'border-box' }}
-      className="relative flex items-center border-blue-400 border-solid rounded-xl hover:bg-blue-200"
-    >
+    <>
       <div
-        ref={npmRef}
-        className={`z-10 my-1 mx-2 text-xs cursor-pointer ${
-          packageManager === 'npm' ? 'text-white' : 'text-blue-400'
-        }`}
-        onClick={() => setPackageManager('npm')}
+        ref={(r) => {
+          parentRef.current = r;
+          setTriggerRef(r);
+        }}
+        style={{ borderWidth: '3px', boxSizing: 'border-box' }}
+        className="relative flex items-center border-blue-400 border-solid rounded-xl hover:bg-blue-200"
       >
-        NPM
+        <div
+          ref={npmRef}
+          className={`z-10 my-1 mx-2 text-xs cursor-pointer ${
+            packageManager === 'npm' ? 'text-white' : 'text-blue-400'
+          }`}
+          onClick={() => setPackageManager('npm')}
+        >
+          NPM
+        </div>
+        <div
+          ref={yarnRef}
+          className={`z-10 my-1 mx-2 text-xs cursor-pointer ${
+            packageManager === 'yarn' ? 'text-white' : 'text-blue-400'
+          }`}
+          onClick={() => setPackageManager('yarn')}
+        >
+          Yarn
+        </div>
+        <div
+          ref={cursorRef}
+          style={{ paddingTop: '0.375rem', paddingBottom: '0.375rem' }}
+          className="absolute left-0 w-1/2 h-4 px-0 transition-all bg-blue-400 rounded-lg"
+        ></div>
       </div>
-      <div
-        ref={yarnRef}
-        className={`z-10 my-1 mx-2 text-xs cursor-pointer ${
-          packageManager === 'yarn' ? 'text-white' : 'text-blue-400'
-        }`}
-        onClick={() => setPackageManager('yarn')}
-      >
-        Yarn
-      </div>
-      <div
-        ref={cursorRef}
-        style={{ paddingTop: '0.375rem', paddingBottom: '0.375rem' }}
-        className="absolute left-0 w-1/2 h-4 px-0 transition-all bg-blue-400 rounded-lg"
-      ></div>
-    </div>
+      {visible && (
+        <div
+          ref={setTooltipRef}
+          {...getTooltipProps({
+            className: 'tooltip-container rounded-lg text-xs text-center ',
+          })}
+        >
+          <div {...getArrowProps({ className: 'tooltip-arrow' })} />
+          <span className="font-semibold">We will remember your choice.</span>
+        </div>
+      )}
+    </>
   );
 };
 

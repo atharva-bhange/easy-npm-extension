@@ -337,6 +337,14 @@
   resolved "https://registry.yarnpkg.com/@extend-chrome/clipboard/-/clipboard-2.0.0.tgz#4a646d2dd05121df46a16a14a0012517bebed6b9"
   integrity sha512-eE+F/Fzz+8LdxIFluAWzFuLq3b+GlQ0SUFhCQ3IuIK9dIc4kmdTy1KdTwcGsSQJuW2UdyskVkESVjHNXD/FsTw==
 
+"@extend-chrome/storage@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@extend-chrome/storage/-/storage-1.5.0.tgz#7823964481af4d93c9dc08b025728175a02824b3"
+  integrity sha512-JhoBZ1xIzu0/mauNR/MadUsfNsWP1lTmWR8RlVJvWStUifzNZdAxI2i8NFCkd4RfjyTn4FcDETik3SDlAfGQRA==
+  dependencies:
+    chrome-promise "^3.0.5"
+    rxjs "^6.5.5 || ^7.1.0"
+
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.5.0.tgz#1407967d4c6eecd7388f83acf1eaf4d0c6e58ef9"
@@ -634,6 +642,11 @@
   integrity sha512-MZPUxrmFubI36XS1DI3qmI0YdN1gks62JtFZvxR67ljjSNCeK6U08Zx4msEWOXuofgqUt6zPHSi1H9fbjR/NRA==
   dependencies:
     "@sinonjs/commons" "^1.7.0"
+
+"@tailwindcss/line-clamp@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/line-clamp/-/line-clamp-0.2.1.tgz#efafe556719c26a3926f0679a98307c4bc9270d2"
+  integrity sha512-Hq2KJY1+T2v7jw/mnT3mnC7CKbp5kj1XTqzSb2xbEt1j+JkxIR6N3ijsN/WevZtsKJfVE1KOejA/3IRKuhZEsQ==
 
 "@tootallnate/once@1":
   version "1.1.2"
@@ -1458,6 +1471,11 @@ chokidar@^3.5.2:
     readdirp "~3.6.0"
   optionalDependencies:
     fsevents "~2.3.2"
+
+chrome-promise@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/chrome-promise/-/chrome-promise-3.0.5.tgz#47132edf44d9cc12a768d72f6064a6b083d77b00"
+  integrity sha512-ekIevrJOO5S6ezSzl5TdaLhlQkovY5nVaNSgA2XyhuNtlGniUvTbf7rzH95alh1OajArwoP2xVGYUJbpVLmZYA==
 
 ci-info@^2.0.0:
   version "2.0.0"
@@ -5242,6 +5260,13 @@ run-parallel@^1.1.9:
   dependencies:
     queue-microtask "^1.2.2"
 
+"rxjs@^6.5.5 || ^7.1.0":
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-7.3.0.tgz#39fe4f3461dc1e50be1475b2b85a0a88c1e938c6"
+  integrity sha512-p2yuGIg9S1epc3vrjKf6iVb3RCaAYjYskkO+jHIaV0IjOPlJop4UnodOoFb2xeNwlguqLYvGw1b1McillYb5Gw==
+  dependencies:
+    tslib "~2.1.0"
+
 safe-buffer@~5.1.1:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
@@ -5875,6 +5900,11 @@ tslib@^1.8.1:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
+
+tslib@~2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
+  integrity sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==
 
 tsutils@^3.21.0:
   version "3.21.0"
