@@ -1,5 +1,8 @@
 module.exports = {
-  purge: ['./src/popup/**/*.{css,html,ts,tsx}'],
+  purge: [
+    './src/content/**/*.{css,html,ts,tsx}',
+    './src/popup/**/*.{css,html,ts,tsx}',
+  ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {

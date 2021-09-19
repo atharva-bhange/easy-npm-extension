@@ -10,6 +10,7 @@
     "noUnusedLocals": true,
     "strict": false,
     "target": "es2018",
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "typeRoots": ["./src/@types", "./node_modules/@types"]
   }
 }

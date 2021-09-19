@@ -5,6 +5,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
 import json from 'rollup-plugin-json';
+import svgr from '@svgr/rollup';
 
 import {
   chromeExtension,
@@ -37,6 +38,7 @@ export default {
     resolve({ browser: true, preferBuiltins: false }),
     commonjs({ include: 'node_modules/**' }),
     json(),
+    svgr(),
     typescript({ tsconfig: './tsconfig.json' }),
     // Empties the output dir before a new build
     emptyDir(),
